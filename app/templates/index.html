@@ -8,7 +8,8 @@
   </head>
   <body>
     <div class="container">
-        <h1 class="text-center mt-2 mb-4">Convert Business Card Image in Tabular Format</h1>
+        <h2 class="text-center mt-2 pt-4">Convert Business Card Image in Tabular Format</h2>
+        <p class="text-center small text-muted pb-4">Uplaod the business card image and extract the information in a tabular format. </p>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6">
@@ -24,34 +25,35 @@
                                     <input class="form-control" type="file" id="business_card_image" name="business_card_image" accept="image/*" required>
                                 </div>
                                 <input type="submit" class="btn btn-info" id="submit-button" value="Upload and Process">
-
-                                <!-- Spinner -->
-                                <div id="loading-spinner" class="text-center mt-3">
-                                    <div class="spinner-border" role="status">
-                                        <span class="visually-hidden">Loading...</span>
-                                    </div>
-                                    <p class="mt-2">Processing your business card...</p>
-                                </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Spinner -->
+            <div id="loading-spinner" class="text-center mt-3">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p class="mt-2">Processing your business card...</p>
+            </div>
+
             <div class="container">
-                {% if card_data %}
-                    <div class="table-responsive mt-3 mb-3">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Company</th>
-                                    <th>Department</th>
-                                    <th>Job Title</th>
-                                    <th>Email</th>
-                                    <th>Mobile</th>
-                                    <th>Work Phone</th>
-                                </tr>
-                            </thead>
+                <div class="table-responsive mt-3 mb-3 p-5">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Company</th>
+                                <th>Department</th>
+                                <th>Job Title</th>
+                                <th>Email</th>
+                                <th>Mobile</th>
+                                <th>Work Phone</th>
+                            </tr>
+                        </thead>
+                        {% if card_data %}
                             <tbody>
                                 <tr>
                                     <td>{{card_data.first_name}} {{card_data.last_name}}</td>
@@ -63,23 +65,10 @@
                                     <td>{{card_data.work_phone}}</td>
                                 </tr>
                             </tbody>
-                        </table>
-                    </div>
-                {% endif %}
-            </div>
-        </div>
-        <div class="container">
-            <!-- Add Disclaimer Section -->
-            <div class="alert alert-info mb-4 mt-4" role="alert">
-                <h4 class="alert-heading">About This Application</h4>
-                <p>This application uses Azure AI Document Intelligence to extract information from business cards. Please note:</p>
-                <ul>
-                    <li>The extracted information should be reviewed for accuracy</li>
-                    <li>Personal information is processed securely but not stored permanently</li>
-                    <li>This service adheres to <a href="https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai?view=azureml-api-2" target="_blank">AI principles</a>  including fairness, reliability, privacy, inclusiveness, transparency, and accountability</li>
-                </ul>
-                <hr>
-                <p class="mb-0">By using this service, you acknowledge that results may vary depending on image quality and card format.</p>
+                        {% endif %}
+                    </table>
+                </div>
+                
             </div>
         </div>
     </div>
