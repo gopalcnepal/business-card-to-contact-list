@@ -2,6 +2,8 @@
 
 A Flask web application that extracts contact information from business card images using Azure AI Document Intelligence service. The application converts business card images into structured, tabular data for easy import into contact management systems.
 
+![Business Card to Contact List Converter Screenshot](screenshot.png)
+
 ## Features
 
 - Upload and process business card images
